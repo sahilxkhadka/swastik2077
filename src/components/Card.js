@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState } from "react";
 import html2canvas from "html2canvas"
 import Header from "./Header";
 import IdCardInfo from "./IdCardInfo"
@@ -6,26 +6,31 @@ import IdCardFooter  from "./IdCardFooter";
 
 
 const Card = (props) => {
-  const handleDownloadImage = async () => {
-    const element = document.getElementById(props.name)
-    const canvas = await html2canvas(element),
-    data = canvas.toDataURL('image/png'),
-    link = document.createElement('a');
- 
-    link.href = data;
-    link.target = "_blank"
-    link.download = `id-card-${props.image}`;
- 
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link); 
-  };
+  const [buttonText, setButtonText] = useState("Download ID Card")
+  const downloadImage = () => {
+    html2canvas(document.getElementById(props.name)).then(canvas => {
+      document.body.appendChild(canvas);
+      const link = document.createElement('a');
+      const data = canvas.toDataURL()
+      link.href = data;
+      link.target = "_blank"
+      link.download = `id-card-${props.image}`;
+  
+      document.body.appendChild(link);
+      link.click();
+      });
+    }
   return (
     <div className="app__card" id= {props.name} >
       <Header />
       <div className="app__card-body">
-        <div className="app__card-body_button">
-          <button type="button" onClick={handleDownloadImage}>Id Card</button>
+        <div className="app__card-body_button"
+            onMouseOver={() => setButtonText("Identity card")}
+            onMouseOut = {() => {setButtonText("Download Id card")}}
+            onClick = {downloadImage}>
+          <button type="button">
+            {buttonText}
+          </button>
         </div>
         <IdCardInfo 
             key={props.name}
