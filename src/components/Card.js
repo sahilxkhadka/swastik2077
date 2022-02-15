@@ -5,35 +5,37 @@ import IdCardInfo from "./IdCardInfo"
 import IdCardFooter  from "./IdCardFooter";
 
 
-const Card = () => {
+const Card = (props) => {
   const handleDownloadImage = async () => {
-    const element = document.getElementById('id-card'),
-    canvas = await html2canvas(element),
+    const element = document.getElementById(props.name)
+    const canvas = await html2canvas(element),
     data = canvas.toDataURL('image/png'),
     link = document.createElement('a');
  
     link.href = data;
     link.target = "_blank"
-    link.download = 'id-card.png';
+    link.download = `id-card-${props.image}`;
  
     document.body.appendChild(link);
     link.click();
-    document.body.removeChild(link);
+    document.body.removeChild(link); 
   };
   return (
-    <div className="app__card" id="id-card" >
+    <div className="app__card" id= {props.name} >
       <Header />
       <div className="app__card-body">
         <div className="app__card-body_button">
-          <button type="button" onClick={handleDownloadImage}>View Id Card</button>
+          <button type="button" onClick={handleDownloadImage}>Id Card</button>
         </div>
         <IdCardInfo 
-            name = "Abid Adhikari"
-            address = "Thimi, Bhaktapur"
-            dob = "2058/10/12"
-            level = "Bsc.Csit"
-            roll = "CSIT/077/01"
+            key={props.name}
+            name = {props.name}
+            address = {props.address}
+            dob = {props.dob}
+            level = "B.Sc.CSIT"
+            roll ={props.roll}
             validDate = "31 December 2024"
+            image={props.image}
         />
       </div>
       <div className="app__card-footer">
