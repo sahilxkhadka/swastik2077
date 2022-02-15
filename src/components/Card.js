@@ -34,7 +34,7 @@ const Card = (props) => {
             dob = {props.dob}
             level = "B.Sc.CSIT"
             roll ={props.roll}
-            validDate = "31 December 2024"
+            validDate = "31 Chaitra 2082"
             image={props.image}
         />
       </div>
