@@ -131,12 +131,12 @@ body {
 .app__card-body_info-img {
   width: 30%;
   align-self: center;
+  border-radius: inherit;
 }
 .app__card-body_info-img img {
   width: 80%;
-  aspect-ratio: 1/1;
   object-fit: cover;
-  object-position: top;
+  object-position: center;
 }
 .app__card-footer {
   background-color: #1e6091;
