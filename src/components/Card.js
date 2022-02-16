@@ -6,7 +6,7 @@ import IdCardFooter  from "./IdCardFooter";
 
 
 const Card = (props) => {
-  const [buttonText, setButtonText] = useState("Download ID Card")
+  const [buttonText, setButtonText] = useState("Download Card")
   const downloadImage = () => {
     html2canvas(document.getElementById(props.name)).then(canvas => {
       document.body.appendChild(canvas);
@@ -26,7 +26,7 @@ const Card = (props) => {
       <div className="app__card-body">
         <div className="app__card-body_button"
             onMouseOver={() => setButtonText("Identity card")}
-            onMouseOut = {() => {setButtonText("Download Id card")}}
+            onMouseOut = {() => {setButtonText("Download card")}}
             onClick = {downloadImage}>
           <button type="button">
             {buttonText}
