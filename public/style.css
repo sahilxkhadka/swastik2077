@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Montserrat:wght@400;600&family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Great+Vibes&family=Montserrat:wght@400;600&family=Russo+One&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -247,25 +247,16 @@ footer .social_icon
     flex-wrap: wrap;
 
 }
-
-footer .social_icon li
-{
-    list-style:  none;
+footer  img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  transition: all 0.3s ease-in-out;
 }
 
-footer .social_icon li a
+footer img:hover
 {
-    font-size: 30px;
-    color: whitesmoke;
-    margin: 0 10px;
-    display: inline-block;
-    transition: 0.3s ease;
-
-
-}
-
-footer .social_icon li a:hover
-{
+    cursor: pointer;
     transform: scale(1.3);
 }
 

@@ -31,7 +31,7 @@ const IdCardInfo = ({name, address, dob, level, roll, validDate,image}) => {
         </div>
       </div>
       <div className="app__card-body_info-img">
-        <img src= {`/images/${image}.jpg`} alt="abid" />
+        <img src= {`/images/${image}.jpg`} alt= {name} />
       </div>
     </div>
   )
