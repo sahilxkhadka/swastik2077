@@ -12,6 +12,9 @@ body {
   background-repeat: repeat-x;
   font-family: 'Montserrat', sans-serif;
 }
+canvas {
+  display: none;
+}
 #preloader{
   min-height: 100vh;
   width: 100vw;
